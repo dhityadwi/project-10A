@@ -1,0 +1,818 @@
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+html {
+    --clr-body: #e2f3f5;
+    --clr-NavBg: linear-gradient(300deg, #216ef2 15%, transparent);
+    --clr-headBg: #0e153a;
+    --clr-anim: #333;
+    --clr-mainbg: linear-gradient(300deg, #216ef2 40%, #0e153a);
+    --clr-textp: #d3d6dbc0;
+    --clr-hirebtn: #242830;
+    --clr-skillP: #25262983;
+
+    --clr-skillS: #1b1a1a;
+    --clr-inputBG: #c5e3f6;
+}
+
+html[data-theme='dark'] {
+    --clr-body: #242328;
+    --clr-NavBg: linear-gradient(180deg, rgb(17, 17, 17) 50%, tranparent);
+    --clr-headBg: #15181d;
+    --clr-anim: #dee1ec;
+    --clr-mainbg: linear-gradient(45deg, rgb(19, 19, 19) -10%, #141516);
+    --clr-textp: #8a94a783;
+    --clr-hirebtn: #46a0f5;
+    --clr-skillP: #dee1ec;
+
+    --clr-skillS: #dee1ec;
+    --clr-inputBG: #373a41;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: poppins;
+    background-color: var(--clr-body);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*---------CSS Menu Header-------------*/
+.navigasi-header {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    z-index: 5;
+    background-image: var(--clr-NavBg);
+    background-color: var(--clr-headBg);
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.menu li {
+    padding: 20px;
+}
+
+.menu li a {
+    color: #ffffffcc;
+}
+
+.menu li a:hover {
+    color: #46a0f5;
+    transition: all ease 0.5s;
+}
+
+.logo {
+    height: 33px;
+    z-index: 5;
+}
+
+.logo img {
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+/*---------CSS dark mode-------------*/
+
+.dark-light {
+    color: #ffffffcc;
+}
+
+input[type=checkbox] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+.dark-light label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 52px;
+    height: 27px;
+    background: grey;
+    float: right;
+    border-radius: 100px;
+    position: relative;
+}
+
+.dark-light label:after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 90px;
+    transition: 0.3s;
+}
+
+.dark-light input:checked+label {
+    background: #3694FF;
+}
+
+.dark-light input:checked+label:after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+}
+
+.dark-light label:active:after {
+    width: 45px;
+}
+
+/*---------BATAR CSS dark mode-------------*/
+
+/*------------------------BATAR CSS Menu Header------------------*/
+
+/*---------CSS home-------------*/
+#home {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    letter-spacing: 0.5em;
+    font-size: 1.5em;
+    text-transform: uppercase
+}
+
+.scroll {
+    position: relative;
+}
+
+.scroll span {
+    position: relative;
+    display: inline-block;
+    color: var(--clr-anim);
+    animation: animate 1s ease-in-out infinite;
+    animation-delay: calc(0.1s *var(--i));
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(0px);
+    }
+
+    20% {
+        transform: translateY(20px);
+    }
+
+    40%,
+    100% {
+        transform: translateY(40px, 100px);
+    }
+}
+
+/*------------------- batas CSS home-----------------*/
+
+/*---------CSS Main-------------*/
+
+#main {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+
+#main::before {
+    content: '';
+    position: absolute;
+    width: 130%;
+    height: 100vh;
+    left: -20%;
+    top: -29.3%;
+    transform: rotate(-10deg);
+    background: var(--clr-mainbg);
+    z-index: -1;
+}
+
+.main-text {
+    position: absolute;
+    left: 15%;
+    top: 43%;
+    transform: translate(-15%, -43%);
+    width: 500px;
+
+}
+
+.main-text h1 {
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-shadow: 2px 2px 30px rgba(0, 0, 0, 0.01);
+    margin: 0;
+    line-height: 45px;
+
+}
+
+.main-text p {
+    color: var(--clr-textp);
+    font-size: 1rem;
+    margin: 0;
+    margin-top: 10px;
+    text-align: justify;
+}
+
+.main-buttn {
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.main-buttn a {
+    width: 180px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    color: #fff;
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.05);
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.donwload-cv-btn {
+    background: linear-gradient(90deg, #2788e2, #3b58b8);
+    margin-right: 20px;
+    border-radius: 5px;
+}
+
+.hire-me-btn {
+    background-color: var(--clr-hirebtn);
+    border-radius: 5px;
+}
+
+.hire-me-btn:hover {
+    background-color: #0f7ce2;
+    transition: all ease 0.3s;
+}
+
+.model {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    right: 7%;
+    transform: translate(-7%, -50%);
+}
+
+.model img {
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/*--------------------------Batas CSS Main-------------*/
+
+/*------------CSS Pendidiakn-------------*/
+
+#pendidikan {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    z-index: 3;
+    position: relative;
+    padding-top: 95px;
+    padding-bottom: 20px;
+}
+
+.didik-head {
+    color: #ffffff;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    width: 90%;
+    background-color: var(--clr-headBg);
+    padding: 10px;
+    display: flex;
+}
+
+.didik-cont {
+    width: 90%;
+    margin-top: 51px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+}
+
+.didik-box {
+    padding: 1rem;
+    color: #ddd;
+    padding-bottom: 54px;
+    padding-top: 54px;
+}
+
+.didik-box p {
+    color: var(--clr-skillP);
+    font-size: 0.95rem;
+    text-align: center;
+    margin: 5px;
+}
+
+.didik-judul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.didik-judul h3 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: var(--clr-skillP);
+    margin: 0.5rem;
+}
+
+.logo-box {
+    width: 120px;
+    height: 120px;
+    position: relative;
+    border-radius: 50px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.logo-didik {
+    width: 90px;
+    height: 90px;
+}
+
+/*---------------------Batas CSS Pendidikan-------------*/
+
+/*------------CSS Skill-------------*/
+
+#skill {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 3;
+    position: relative;
+    padding-top: 95px;
+    padding-bottom: 50px;
+}
+
+.fa-html5 {
+    color: #dd9038;
+}
+
+.fa-css3-alt {
+    color: rgb(80, 80, 223);
+}
+
+.fa-js {
+    color: rgb(234, 238, 14);
+}
+
+.fa-cogs {
+    background: linear-gradient(90deg, #2788e2 20%, #3b67b8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.skill-head {
+    color: #ffffff;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    width: 90%;
+    background-color: var(--clr-headBg);
+    padding: 10px;
+    display: flex;
+}
+
+.skill-box-cont {
+    width: 90%;
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+}
+
+.skill-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px 20px 20px 20px;
+}
+
+.skill-box i {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    margin-right: auto;
+}
+
+.skill-box p {
+    color: var(--clr-skillP);
+    font-size: 0.95rem;
+    text-align: justify;
+}
+
+.skill-box strong {
+    font-size: 1.3rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: var(--clr-skillS);
+}
+
+/*--------------------------Batas CSS Skill-------------*/
+
+/*-----------CSS Kontak -------------*/
+
+#kenalan {
+    width: 90%;
+    height: 100px;
+    background-color: var(--clr-headBg);
+    display: flex;
+    margin: 27px auto;
+    padding: 20px 40px;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url(/asset/image/bg-2.png);
+    background-position: top right;
+    background-size: 500px;
+    background-repeat: no-repeat;
+}
+
+#kenalan span {
+    color: #eaeaea;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+#kenalan a {
+    color: #fff;
+    width: 160px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(90deg, #2788e2 20%, #3b4eb8);
+    border-radius: 5px;
+}
+
+#kontak {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#kontak form {
+    width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#kontak form input {
+    width: 100%;
+    height: 50px;
+    margin: 5px 0;
+    padding: 10px;
+    border: none;
+    outline: none;
+    background-color: var(--clr-inputBG);
+    color: #fff;
+    border-radius: 5px;
+}
+
+#kontak form textarea {
+    height: 150px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+#kontak form input[type='submit'] {
+    height: 45px;
+    color: #fff;
+    background: linear-gradient(90deg, #2065cc 20%, #3b58b8);
+    text-transform: uppercase;
+}
+
+/*---------------------------------------Batas CSS Kontak-------------*/
+
+/*-------------CSS Footer-------------*/
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    margin-top: 50px;
+}
+
+.copyright {
+    color: var(--clr-skillP);
+}
+
+.sosmed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sosmed a {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #fff;
+    background-color: #292b3252;
+    margin: 5px;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.sosmed a:hover {
+    background-color: #2993f7;
+    transition: all ease 0.5s;
+}
+
+::selection {
+    color: #e4e4e4;
+    background-color: #416cdf;
+}
+
+
+/*---------Batas CSS footer-------------*/
+
+/*----------------Make Responsive----------------*/
+
+@media(max-width:1200px) {
+
+    .model {
+        width: 200px;
+        height: 200px;
+        right: 5%;
+        top: 35%;
+        transform: translate(-5%, -35%);
+    }
+
+    .main-text {
+        left: 10%;
+        top: 35%;
+        transform: translate(-10%, -35%);
+    }
+}
+
+@media(max-width:1000px) {
+
+    .navigasi-header {
+        justify-content: space-between;
+        height: 65px;
+        padding: 25px 10px;
+    }
+
+    .model {
+        display: none;
+    }
+
+    .main-text {
+        left: 50%;
+        top: 25%;
+        transform: translate(-50%, -25%);
+    }
+
+
+    .didik-judul h3 {
+        font-size: 1.1rem;
+        font-weight: 400;
+        letter-spacing: 1px;
+        color: var(--clr-skillP);
+        margin: 0.5rem;
+    }
+
+}
+
+@media(max-width:900px) {
+
+    .navigasi-header {
+        justify-content: space-between;
+        height: 65px;
+        padding: 35px 25px;
+    }
+
+    .navigasi-header .menu {
+        display: none;
+        position: absolute;
+        top: 65px;
+        left: 0px;
+        background-color: var(--clr-headBg);
+        border-bottom: 4px solid #1b1b1b;
+        width: 100%;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .navigasi-header .menu li {
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .navigasi-header .menu li a {
+        width: 100%;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        margin: 0px;
+        padding: 30px 20px;
+        border: 1px solid rgba(38, 38, 38, 0.03);
+    }
+
+    .navigasi-header .menu li a:hover {
+        color: #ffffff;
+        background-color: #2065cc;
+    }
+
+    .dark-light span {
+        display: none;
+    }
+
+
+    .menu-icon {
+        display: block;
+        right: 15%;
+    }
+
+    nav .menu-icon {
+        cursor: pointer;
+        float: right;
+        padding: 5px;
+        position: relative;
+        user-select: none;
+        z-index: 2;
+    }
+
+    nav .menu-icon .nav-icon {
+        background-color: #ffffff;
+        display: block;
+        position: relative;
+        height: 2px;
+        transition: background 0.2s ease-out;
+        width: 25px;
+    }
+
+    nav .menu-icon .nav-icon::before {
+        top: 5px;
+    }
+
+    nav .menu-icon .nav-icon::after {
+        top: -5px;
+    }
+
+
+    nav .menu-icon .nav-icon::before,
+    nav .menu-icon .nav-icon::after {
+        background-color: #ffffff;
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        transition: all ease-out 0.2s;
+        width: 100%;
+    }
+
+    nav .menu-icon .nav-icon,
+    nav .menu-icon:checked~.menu-icon .nav-icon {
+        background-color: transparent;
+    }
+
+    nav .menu-btn:checked~.menu-icon .nav-icon::before {
+        transform: rotate(-45deg);
+        top: 0px;
+    }
+
+    nav .menu-btn:checked~.menu-icon .nav-icon::after {
+        transform: rotate(45deg);
+        top: 0px;
+    }
+
+    nav .menu-btn:checked~.menu {
+        display: block;
+    }
+
+    .menu::before {
+        position: absolute;
+        left: 0px;
+        top: -70px;
+        content: '';
+        width: 100%;
+        height: 70px;
+        background-color: var(--clr-NavBg);
+    }
+
+    .main-text {
+        top: 26%;
+    }
+
+
+    .didik-cont {
+        grid-template-rows: auto;
+        grid-template-columns: 1fr;
+    }
+
+    .skill-box-cont {
+        grid-template-rows: auto;
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media(max-width:620px) {
+
+    #kontak form {
+        width: 90%;
+    }
+
+    .main-text {
+        width: 85%;
+    }
+
+    .scroll {
+        letter-spacing: 0.2em;
+        font-size: 1.1em;
+    }
+}
+
+
+@media(max-width:530px) {
+
+    .main-buttn {
+        flex-direction: column;
+    }
+
+    .main-text {
+        top: 26%;
+    }
+
+    .main-buttn a {
+        width: 100%;
+        margin: 5px 0px;
+    }
+
+    .scroll {
+        letter-spacing: 0.1em;
+        font-size: 1.1em;
+    }
+
+    .didik-box {
+        text-align: center;
+    }
+
+    #kenalan {
+        padding: 20px 10px;
+        text-align: center;
+    }
+
+    #kenalan span {
+        font-size: 1.1rem;
+    }
+
+    .copyright {
+        font-size: 0.8rem;
+    }
+}
+
+
+@media(max-width:300px) {
+    .navigasi-header {
+        padding: 30px 10px;
+    }
+}
